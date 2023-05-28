@@ -37,12 +37,22 @@ div.onmousedown = function(e) {
     document.onmousemove = function(e) {
 
         var delta = Math.ceil(e.movementX) / window.outerWidth;
-         currentFrame -= (delta * images.length) * xSensitivity;
+         currentFrame -= (delta * images.length) ;
          currentFrame = Math.round(Math.max(0, Math.min(images.length - 1, currentFrame)));
     }
 
 
     document.onmouseup = function() {
         document.onmousemove = null; // remove mousemove to stop tracking
+    }
+};
+div.ontouchstart = function(e) {
+    document.ontouchmove = function(e) {
+        var delta = Math.ceil(e.movementX) / window.outerWidth;
+        currentFrame -= (delta * images.length) * xSensitivity;
+        currentFrame = Math.round(Math.max(0, Math.min(images.length - 1, currentFrame)));
+    }
+    document.ontouchend = function() {
+        document.ontouchmove = null; // remove mousemove to stop tracking
     }
 };
