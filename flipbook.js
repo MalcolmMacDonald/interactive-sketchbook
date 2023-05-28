@@ -1,5 +1,6 @@
 
 let images = [];
+let xSensitivity = 0.5;
 
 fetch("assets/frames.tar").then(response => {
     return response.arrayBuffer();
@@ -33,12 +34,10 @@ window.requestAnimationFrame(frame);
 let currentFrame = 0;
 
 div.onmousedown = function(e) {
-    startpos = e.clientX;
-    startval = currentFrame;
     document.onmousemove = function(e) {
 
-        var delta = Math.ceil(e.clientX - startpos) / window.outerWidth;
-         currentFrame -= delta * 10;
+        var delta = Math.ceil(e.movementX) / window.outerWidth;
+         currentFrame -= (delta * images.length) * xSensitivity;
          currentFrame = Math.round(Math.max(0, Math.min(images.length - 1, currentFrame)));
     }
 
