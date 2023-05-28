@@ -2,3 +2,7 @@
 *.MP4
 *.webm
 /.idea
+*.jpg
+/node_modules
+node_modules/
+*.tar

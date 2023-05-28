@@ -1,0 +1,15 @@
+{
+  "name": "video-processor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "run": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "js-untar": "^2.0.0",
+    "tar": "^6.1.15"
+  }
+}
